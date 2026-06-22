@@ -49,3 +49,47 @@ body {
     padding: 10px;
 
 }
+
+.boite {
+    font-size: 24px;
+    border: 4px solid #000000;
+    height: 40%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;  
+    justify-content: start; 
+    align-items: center;   
+    padding-top: 50px; 
+    background-color: #e4e4e46e;
+    border-radius: 20px;
+
+}
+
+.code-unique {
+
+    margin-top: 50px;
+    background-color: #9cd2ff;
+    color: #000000;
+    padding: 12px 24px;
+    font-size: 26px;
+    font-weight: bold;
+    border: 2px solid #000000;
+    border-radius: 14px;
+    font-family: monospace;
+}
+
+.conteneur {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;  
+    flex-grow: 1;        
+    background-color: #ffffff;
+}
+
+.bouton_ouvrir_boite {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+}
