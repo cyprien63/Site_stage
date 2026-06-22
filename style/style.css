@@ -1,3 +1,19 @@
+.logo-container {
+    display: inline-flex; 
+    flex-direction: row;  
+    align-items: center; 
+    gap: 15px;          
+}
+
+
+#logo {
+    height: 70px;
+    object-fit: cover;
+    position: absolute;
+    left: 20px;
+}
+
+
 body {
     margin: 0;
     padding: 0;
