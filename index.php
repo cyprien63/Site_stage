@@ -15,7 +15,7 @@
         </header>
 
         <div class="boutton-principal">
-            <a href="/page/Creer_doc.html" class="btn">Créer Doc</a>
+            <a href="/page/Creer_doc.php" class="btn">Créer Doc</a>
             <a href="/page/Ouvrir_doc.html" class="btn">Ouvrir Doc</a>
         </div>
 

@@ -22,3 +22,10 @@ Le site contient plusieurs pages simples qui permettent de naviguer entre :
 - `page/editeur.html` : page d'édition de document
 - `style/style.css` : styles partagés du site
 - `source/LOGO.png` : logo utilisé sur la page d'accueil
+
+
+le PHP : 
+$servername = "localhost";
+$username = "SITE";
+$password = "";
+$dbname = "DocKey";

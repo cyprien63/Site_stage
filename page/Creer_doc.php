@@ -13,7 +13,16 @@
     <div class="conteneur">
         <div class="boite">
             <p>votre code :</p>
-            <div class="code-unique">fh5sd6</div>
+
+                <?php
+                    require_once __DIR__ . '/../source/connection.php';
+                    $conn = getConnection();
+                    $statusconnection = "Connected successfully";
+                    $conn->close();
+                ?>
+
+            <div class="code-unique"><?php echo htmlspecialchars($statusconnection); ?></div>
+
         </div>
         <div class="bouton_ouvrir_boite"><a href="/page/editeur.html" class="btn">Ouvrir</a></div>
     </div>
