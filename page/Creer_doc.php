@@ -16,12 +16,32 @@
 
                 <?php
                     require_once __DIR__ . '/../source/connection.php';
+                    
                     $conn = getConnection();
-                    $statusconnection = "Connected successfully";
+                    $code_unique = bin2hex(random_bytes(5));
+                    
+                    $sql = "INSERT INTO doc (
+                                id,
+                                compte, 
+                                contents, 
+                                created_at, 
+                                updated_at
+                            ) VALUES (
+                                '$code_unique',
+                                'NO', 
+                                'Ton texte ici', 
+                                NOW(), 
+                                NOW()
+                            )";
+                    
+                    if ($conn->query($sql) !== true) {
+                        $code_unique = 'Erreur SQL : ' . $conn->error;
+                    }
+                    
                     $conn->close();
                 ?>
 
-            <div class="code-unique"><?php echo htmlspecialchars($statusconnection); ?></div>
+            <div class="code-unique"><?php echo htmlspecialchars($code_unique); ?></div>
 
         </div>
         <div class="bouton_ouvrir_boite"><a href="/page/editeur.html" class="btn">Ouvrir</a></div>
