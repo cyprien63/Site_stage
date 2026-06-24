@@ -26,6 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ok = $conn->query("INSERT INTO utilisateur (nom, mot_de_passe) VALUES ('$nom', '$pass')");
             if ($ok) {
                 $conn->close();
+
+                
+
                 header("Location: /page/page_liste.html");
                 exit;
             } else {

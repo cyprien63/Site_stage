@@ -17,6 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($res && $row = $res->fetch_assoc()) {
             if ($row['mot_de_passe'] === $pass) {
                 $conn->close();
+
+                SESSION($nom);
+
                 header('Location: /page/page_liste.html');
                 exit;
             } else {

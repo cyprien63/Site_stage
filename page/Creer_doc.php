@@ -6,7 +6,7 @@ $code_unique = bin2hex(random_bytes(5));
 
 $sql = "INSERT INTO doc (
             id,
-            compte, 
+            id_compte, 
             contents, 
             created_at, 
             updated_at

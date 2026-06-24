@@ -48,3 +48,29 @@ function updateDocContents(string $id, string $contents): string {
     $conn->close();
     return $error;
 }
+
+
+function SESSION($nom_utilisateur) {
+
+    $conn = getConnection();
+
+
+    $res = $conn->query("SELECT id FROM utilisateur WHERE nom = '$nom_utilisateur'");
+    
+    $id_utilisateur = null;
+    if ($res && $row = $res->fetch_assoc()) {
+
+        $id_utilisateur = $row['id']; 
+    }
+    
+    $conn->close(); 
+
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+
+    $_SESSION['id'] = $id_utilisateur;
+    $_SESSION['nom'] = $nom_utilisateur;
+}
