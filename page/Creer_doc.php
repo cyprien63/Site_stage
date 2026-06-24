@@ -12,7 +12,7 @@ $sql = "INSERT INTO doc (
             updated_at
         ) VALUES (
             '$code_unique',
-            'NO', 
+            0, 
             '', 
             NOW(), 
             NOW()

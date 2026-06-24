@@ -194,8 +194,8 @@ textarea.feuille {
     gap: 15px;
 }
 
-#connection {
-
+.connection,
+.input-connection {
     width: 100%;
     padding: 10px;
     font-size: 18px;
