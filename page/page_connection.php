@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (isset($_SESSION['id']) && $_SESSION['id'] !== '') {
+    header('Location: /page/page_liste.php');
+    exit;
+}
+
 // Simple login (no security) - works with existing `utilisateur` table
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';

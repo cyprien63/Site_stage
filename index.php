@@ -1,10 +1,3 @@
-<?php
-session_start();
-
-
-$_SESSION = [];
-session_destroy();
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
