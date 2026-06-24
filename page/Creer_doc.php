@@ -13,7 +13,7 @@ $sql = "INSERT INTO doc (
         ) VALUES (
             '$code_unique',
             'NO', 
-            'votre texte ici', 
+            '', 
             NOW(), 
             NOW()
         )";

@@ -33,11 +33,11 @@ function getDocContents(string $id): string {
 function updateDocContents(string $id, string $contents): string {
     $conn = getConnection();
 
-    $safeId = $conn->real_escape_string($id);
-    $safeContents = $conn->real_escape_string($contents);
+    $id = $conn->real_escape_string($id);
+    $Contents = $conn->real_escape_string($contents);
     $sql = "UPDATE doc 
-            SET contents='$safeContents', updated_at=NOW() 
-            WHERE id='$safeId'";
+            SET contents='$Contents', updated_at=NOW() 
+            WHERE id='$id'";
 
     if ($conn->query($sql) === true) {
         $conn->close();
