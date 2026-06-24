@@ -16,11 +16,11 @@
 
         <div class="boutton-principal">
             <a href="/page/Creer_doc.php" class="btn">Créer Doc</a>
-            <a href="/page/Ouvrir_doc.html" class="btn">Ouvrir Doc</a>
+            <a href="/page/Ouvrir_doc.php" class="btn">Ouvrir Doc</a>
         </div>
 
         <div class="boutton-connection">
-            <a href = "/page/page_connection.html" class="btn">Se connecter</a>
+            <a href = "/page/page_connection.php" class="btn">Se connecter</a>
         </div>
 
     </body>

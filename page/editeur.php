@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../source/connection.php';
 
-$code_unique = $_GET['id'];
+$code_unique = $_GET['id'] ?? '';
 $editorText = '';
 $savedMessage = '';
 
@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = updateDocContents($code_unique, $editorText);
         $savedMessage = $error === '' ? 'Enregistré avec succès.' : 'Erreur : ' . $error;
     }
+} elseif ($code_unique !== '') {
+    $editorText = getDocContents($code_unique);
 }
 ?>
 
