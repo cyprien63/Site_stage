@@ -13,4 +13,20 @@ function getConnection(): mysqli {
 
     return $conn;
 }
-?>
+
+function updateDocContents(string $id, string $contents): string {
+    $conn = getConnection();
+
+    $sql = "UPDATE doc 
+            SET contents='$contents', updated_at=NOW() 
+            WHERE id='$id'";
+
+    if ($conn->query($sql) === true) {
+        $conn->close();
+        return '';
+    }
+
+    $error = $conn->error;
+    $conn->close();
+    return $error;
+}

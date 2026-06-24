@@ -19,7 +19,8 @@
                     
                     $conn = getConnection();
                     $code_unique = bin2hex(random_bytes(5));
-                    
+
+                                       
                     $sql = "INSERT INTO doc (
                                 id,
                                 compte, 
@@ -44,7 +45,7 @@
             <div class="code-unique"><?php echo htmlspecialchars($code_unique); ?></div>
 
         </div>
-        <div class="bouton_ouvrir_boite"><a href="/page/editeur.html" class="btn">Ouvrir</a></div>
+        <div class="bouton_ouvrir_boite"><a href="/page/editeur.php?id=<?php echo urlencode($code_unique); ?>" class="btn">Ouvrir</a></div>
     </div>
 </body>
 </html>
