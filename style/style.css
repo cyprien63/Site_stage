@@ -154,6 +154,7 @@ body {
 textarea.feuille {
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.5;
 }
 
 .feuille::placeholder {
