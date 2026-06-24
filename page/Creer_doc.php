@@ -1,8 +1,10 @@
 <?php
+session_start();
 require_once __DIR__ . '/../source/connection.php';
 
 $conn = getConnection();
 $code_unique = bin2hex(random_bytes(5));
+$id_connecte = isset($_SESSION['id']) && $_SESSION['id'] !== '' ? (int) $_SESSION['id'] : 0;
 
 $sql = "INSERT INTO doc (
             id,
@@ -12,7 +14,7 @@ $sql = "INSERT INTO doc (
             updated_at
         ) VALUES (
             '$code_unique',
-            0, 
+            $id_connecte, 
             '', 
             NOW(), 
             NOW()

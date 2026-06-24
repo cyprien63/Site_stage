@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Simple login (no security) - works with existing `utilisateur` table
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';
@@ -12,15 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once __DIR__ . '/../source/connection.php';
         $conn = getConnection();
         // Simple query, no escaping (per user request)
-        $res = $conn->query("SELECT mot_de_passe FROM utilisateur WHERE nom = '$nom'");
+        $res = $conn->query("SELECT id, mot_de_passe FROM utilisateur WHERE nom = '$nom'");
 
         if ($res && $row = $res->fetch_assoc()) {
             if ($row['mot_de_passe'] === $pass) {
+                $_SESSION['Nom'] = $nom;
+                $_SESSION['id'] = $row['id'];
                 $conn->close();
-
-                SESSION($nom);
-
-                header('Location: /page/page_liste.html');
+                header('Location: /page/page_liste.php');
                 exit;
             } else {
                 $erreur = 'Mot de passe incorrect.';

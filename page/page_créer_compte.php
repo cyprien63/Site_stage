@@ -27,9 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($ok) {
                 $conn->close();
 
-                
 
-                header("Location: /page/page_liste.html");
+
+                header("Location: /page/page_liste.php");
                 exit;
             } else {
                 $erreur = 'Erreur : ' . $conn->error;

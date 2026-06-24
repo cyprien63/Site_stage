@@ -222,6 +222,34 @@ textarea.feuille {
     line-height: 0.5;
 }
 
+.liste ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.liste li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    border-bottom: 1px solid #000000;
+}
+
+.liste li:last-child {
+    border-bottom: none;
+}
+
+.delete-link {
+    color: #ff0000;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+.delete-link:hover {
+    color: #c00000;
+}
+
 .conteneur-bouton {
     display: flex;
     justify-content: flex-end; 
