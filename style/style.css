@@ -239,6 +239,16 @@ textarea.feuille {
     border-bottom: none;
 }
 
+.doc-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.doc-link:hover {
+    text-decoration: underline;
+}
+
 .delete-link {
     color: #ff0000;
     font-weight: bold;

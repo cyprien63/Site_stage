@@ -40,7 +40,7 @@
             <ul>
                 <?php while ($doc = $list->fetch_assoc()): ?>
                     <li>
-                        <?php echo htmlspecialchars($doc['id']); ?>
+                        <a class="doc-link" href="/page/editeur.php?id=<?php echo urlencode($doc['id']); ?>"><?php echo htmlspecialchars($doc['id']); ?></a>
                         <a class="delete-link" href="?delete=<?php echo urlencode($doc['id']); ?>" title="Supprimer ce document">✕</a>
                     </li>
                 <?php endwhile; ?>
