@@ -3,7 +3,6 @@ require_once __DIR__ . '/../source/connection.php';
 
 $code_unique = $_GET['id'] ?? '';
 $editorText = '';
-$savedMessage = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $code_unique = $_POST['id'] ?? $code_unique;
@@ -11,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($code_unique !== '') {
         $error = updateDocContents($code_unique, $editorText);
-        $savedMessage = $error === '' ? 'Enregistré avec succès.' : 'Erreur : ' . $error;
+        header("Location: /page/editeur.php?id=" . urlencode($code_unique));
+        exit;
     }
 } elseif ($code_unique !== '') {
     $editorText = getDocContents($code_unique);
@@ -38,10 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="btn" type="submit">Enregistrer</button>
         </div>
     </form>
-
-    <?php if ($savedMessage !== ''): ?>
-        <p><?php echo htmlspecialchars($savedMessage); ?></p>
-    <?php endif; ?>
 
     <div class="code-unique-editeur"><?php echo htmlspecialchars($code_unique); ?></div>
 
