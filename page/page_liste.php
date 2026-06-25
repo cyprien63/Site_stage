@@ -2,7 +2,7 @@
 
     session_start();
 
-    // Si l'utilisateur n'est pas connecté, on le renvoie à la connexion
+
     if (!isset($_SESSION['id'])) {
         header('Location: /page/connexion.php');
         exit;
@@ -21,6 +21,17 @@
     $list = $conn->query("SELECT id FROM doc WHERE id_compte = '$id_connecte'");
 ?>
 
+<?php
+
+    require_once __DIR__ . '/../source/connection.php';
+
+
+    if (isset($_GET['action']) && $_GET['action'] === 'logout') {
+        deconnexion();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,6 +43,7 @@
 
     <header class="top-bar">
         <h1>DocKey</h1>
+        <a href="?action=logout" class="btn_deconnextion">Déconnexion</a>
     </header>
     
     <div class="liste">

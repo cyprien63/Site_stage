@@ -74,3 +74,14 @@ function SESSION($nom_utilisateur) {
     $_SESSION['id'] = $id_utilisateur;
     $_SESSION['nom'] = $nom_utilisateur;
 }
+
+
+function deconnexion() {
+session_start();
+session_unset();
+session_destroy();
+
+header("Location: /index.php"); 
+exit();
+
+}
