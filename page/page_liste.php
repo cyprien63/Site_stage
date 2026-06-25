@@ -4,7 +4,7 @@
 
 
     if (!isset($_SESSION['id'])) {
-        header('Location: /page/connexion.php');
+        header('Location: /page/page_connection.php');
         exit;
     }
 
@@ -18,17 +18,15 @@
         $conn->query("DELETE FROM doc WHERE id = '$deleteId' AND id_compte = '$id_connecte'");
     }
 
-    $list = $conn->query("SELECT id FROM doc WHERE id_compte = '$id_connecte'");
-?>
-
-<?php
-
-    require_once __DIR__ . '/../source/connection.php';
-
-
     if (isset($_GET['action']) && $_GET['action'] === 'logout') {
-        deconnexion();
-}
+        session_start();
+        $_SESSION = [];
+        session_destroy();
+        header('Location: /page/page_connection.php');
+        exit;
+    }
+
+    $list = $conn->query("SELECT id FROM doc WHERE id_compte = '$id_connecte'");
 ?>
 
 
