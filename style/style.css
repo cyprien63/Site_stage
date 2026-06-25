@@ -247,14 +247,8 @@ textarea.feuille {
 
 .liste li {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 10px 8px;
-    border-bottom: 1px solid #000000;
-}
-
-.liste li:last-child {
-    border-bottom: none;
 }
 
 .doc-link {
@@ -298,4 +292,16 @@ textarea.feuille {
     border: 2px solid #000000;
     border-radius: 14px;
     font-family: monospace;
+}
+
+.perm-link {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.perm-link:hover {
+    color: #1e7e34;
 }
