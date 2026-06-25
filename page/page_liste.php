@@ -68,7 +68,7 @@
                 <?php endwhile; ?>
             </ul>
         <?php else: ?>
-            <p>Aucun document trouvé.</p>
+            <p>Aucun doc.</p>
         <?php endif; ?>
     </div>
 
