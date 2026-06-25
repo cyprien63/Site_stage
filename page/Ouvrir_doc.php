@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once __DIR__ . '/../source/connection.php';
     
     $id = $_GET['id'] ?? '';
@@ -35,7 +36,7 @@
 
     <header class="top-bar">
 
-        <h1>DocKey</h1>
+        <h1>DocKey<?php if (isset($_SESSION['id']) && $_SESSION['id'] !== ''): ?><span title="<?php echo htmlspecialchars($_SESSION['Nom'] ?? ''); ?>">*</span><?php endif; ?></h1>
 
     </header>
 

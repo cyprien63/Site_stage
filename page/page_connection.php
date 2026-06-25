@@ -54,7 +54,7 @@ $erreur = $_GET['err'] ?? '';
 <body>
 
     <header class="top-bar">
-        <h1>DocKey</h1>
+        <h1>DocKey<?php if (isset($_SESSION["id"]) && $_SESSION["id"] !== ""): ?><span title="<?php echo htmlspecialchars($_SESSION["Nom"] ?? ""); ?>">*</span><?php endif; ?></h1>
     </header>
 
     <div class="conteneur">

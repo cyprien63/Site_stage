@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -11,7 +11,7 @@
         <header class="top-bar">
             <div class="logo-container">
                 <img src="/source/LOGO.png" id="logo" alt="Logo">
-                <h1>DocKey</h1>
+                <h1>DocKey<?php if (isset($_SESSION['id']) && $_SESSION['id'] !== ''): ?><span title="<?php echo htmlspecialchars($_SESSION['Nom'] ?? ''); ?>">*</span><?php endif; ?></h1>
             </div>
         </header>
 
