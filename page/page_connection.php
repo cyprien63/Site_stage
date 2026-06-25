@@ -6,11 +6,9 @@ if (isset($_SESSION['id']) && $_SESSION['id'] !== '') {
     exit;
 }
 
-// Simple login (no security) - works with existing `utilisateur` table
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';
     $pass = $_POST['mot_de_passe'] ?? '';
-
     $erreur = '';
 
     if ($nom === '' || $pass === '') {
@@ -18,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         require_once __DIR__ . '/../source/connection.php';
         $conn = getConnection();
-        // Simple query, no escaping (per user request)
         $res = $conn->query("SELECT id, mot_de_passe FROM utilisateur WHERE nom = '$nom'");
 
         if ($res && $row = $res->fetch_assoc()) {
@@ -37,9 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $conn->close();
     }
-} else {
-    $erreur = '';
+
+    header('Location: /page/page_connection.php?err=' . urlencode($erreur));
+    exit;
 }
+
+$erreur = $_GET['err'] ?? '';
 ?>
 
 

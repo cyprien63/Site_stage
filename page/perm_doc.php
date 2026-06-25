@@ -26,11 +26,10 @@ if (!$doc || ($proprietaire !== 0 && $proprietaire !== (int)$_SESSION['id'])) {
     exit;
 }
 
-$message = '';
-$erreur = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $action = $_POST['action'] ?? '';
+    $message = '';
+    $erreur = '';
 
     if ($action === 'changer_mode') {
         $mode = $_POST['mode'] ?? 'public';
@@ -69,8 +68,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         supprimerPermUtilisateur($id_doc, $id_user);
         $message = 'Utilisateur retiré.';
     }
+
+    $url = '/page/perm_doc.php?id=' . urlencode($id_doc);
+    if ($message !== '') $url .= '&msg=' . urlencode($message);
+    if ($erreur !== '') $url .= '&err=' . urlencode($erreur);
+    header("Location: $url");
+    exit;
 }
 
+$message = $_GET['msg'] ?? '';
+$erreur = $_GET['err'] ?? '';
 $mode_doc = obtenirPermModeDoc($id_doc);
 $utilisateurs = obtenirPermUtilisateurs($id_doc);
 ?>
@@ -108,13 +115,13 @@ $utilisateurs = obtenirPermUtilisateurs($id_doc);
         <p>
             <label>
                 <input type="radio" name="mode" value="public" <?php echo $mode_doc === 'public' ? 'checked' : ''; ?>>
-                <strong>Tout le monde</strong> — n'importe qui peut ouvrir et modifier
+                <strong>Tout le monde</strong>
             </label>
         </p>
         <p>
             <label>
                 <input type="radio" name="mode" value="restreint" <?php echo $mode_doc === 'restreint' ? 'checked' : ''; ?>>
-                <strong>Restreint</strong> — seuls les utilisateurs ajoutés peuvent ouvrir
+                <strong>Restreint</strong> 
             </label>
         </p>
         <button type="submit" class="btn" style="font-size:14px;padding:6px 16px;">Appliquer</button>
@@ -146,7 +153,7 @@ $utilisateurs = obtenirPermUtilisateurs($id_doc);
             </table>
 
         <?php else: ?>
-            <p style="color:#888;">Aucun utilisateur ajouté.</p>
+        
         <?php endif; ?>
 
         <hr>

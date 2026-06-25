@@ -1,34 +1,24 @@
 <?php
 require_once __DIR__ . '/../source/connection.php';
 
-$erreur = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom = $_POST['nom'] ?? '';
     $pass = $_POST['mot_de_passe'] ?? '';
     $passConfirme = $_POST['confirmer_mot_de_passe'] ?? '';
-    
-    
+    $erreur = '';
+
     if ($pass !== $passConfirme) {
         $erreur = 'Les mots de passe ne correspondent pas.';
-    }
-    
-    else {
+    } else {
         $conn = getConnection();
-        
         $existe = $conn->query("SELECT nom FROM utilisateur WHERE nom = '$nom'");
-        
+
         if ($existe->num_rows > 0) {
             $erreur = 'Ce nom existe déjà.';
-        } 
-        
-        else {
+        } else {
             $ok = $conn->query("INSERT INTO utilisateur (nom, mot_de_passe) VALUES ('$nom', '$pass')");
             if ($ok) {
                 $conn->close();
-
-
-
                 header("Location: /page/page_liste.php");
                 exit;
             } else {
@@ -37,7 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $conn->close();
     }
+
+    header('Location: /page/page_créer_compte.php?err=' . urlencode($erreur));
+    exit;
 }
+
+$erreur = $_GET['err'] ?? '';
 ?>
 
 <!DOCTYPE html>
