@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$lecture_seule) {
         <textarea class="feuille" name="contents" placeholder="Commencez à écrire votre document ici..." spellcheck="false" <?php echo $lecture_seule ? 'readonly' : ''; ?>><?php echo htmlspecialchars($editorText); ?></textarea>
         <input type="hidden" name="id" value="<?php echo htmlspecialchars($code_unique); ?>">
         <?php if (!$lecture_seule): ?>
-        <div class="conteneur-bouton">
+        <div class="conteneur-bouton1">
             <button class="btn" type="submit">Enregistrer</button>
         </div>
         <?php endif; ?>

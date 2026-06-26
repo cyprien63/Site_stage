@@ -73,12 +73,11 @@
     </div>
 
     <div class="conteneur-bouton">
-        <a href="/page/Creer_doc.php" class="btn">Créer un doc</a>
+        <a href="/page/Creer_doc.php" class="btn" id ="conteneur-bouton1">Créer un doc</a>
+
+        <a href="/page/Ouvrir_doc.php" class="btn" id ="conteneur-bouton2">ouvrir doc</a>
     </div>
 
-    <div class="conteneur-bouton2">
-        <a href="/page/Ouvrir_doc.php" class="btn">ouvrir doc</a>
-    </div>
     
 
 </body>
